@@ -1,0 +1,130 @@
+[
+    {
+        "slug": "Alfajores",
+        "name": "Alfajores",
+        "description": "Alfajores de maicena, dulce de leche y coco rallado",
+        "price": 100,
+        "images": [
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Alfajores"
+            },
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Alfajores"
+            }
+        ]
+    },
+    {
+        "slug": "Brownies",
+        "name": "Brownies",
+        "description": "Brownies de chocolate con nueces",
+        "price": 150,
+        "images": [
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Brownies"
+            },
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Brownies"
+            }
+        ]
+    },
+    {
+        "slug": "Cookies",
+        "name": "Cookies",
+        "description": "Cookies de chocolate con chips de chocolate",
+        "price": 120,
+        "images": [
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Cookies"
+            },
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Cookies"
+            }
+        ]
+    },
+    {
+        "slug": "Cupcakes",
+        "name": "Cupcakes",
+        "description": "Cupcakes de vainilla con frosting de chocolate",
+        "price": 130,
+        "images": [
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Cupcakes"
+            },
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Cupcakes"
+            }
+        ]
+    },
+    {
+        "slug": "Donuts",
+        "name": "Donuts",
+        "description": "Donuts de vainilla con glaseado de chocolate",
+        "price": 110,
+        "images": [
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Donuts"
+            },
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Donuts"
+            }
+        ]
+    },
+    {
+        "slug": "Muffins",
+        "name": "Muffins",
+        "description": "Muffins de arándanos",
+        "price": 140,
+        "images": [
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Muffins"
+            },
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Muffins"
+            }
+        ]
+    },
+    {
+        "slug": "Torta",
+        "name": "Torta de chocolate",
+        "description": "Tortas de chocolate con frosting de chocolate",
+        "price": 160,
+        "images": [
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Tortas"
+            },
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Tortas"
+            }
+        ]
+    },
+    {
+        "slug": "Torta",
+        "name": "Torta de vainilla",
+        "description": "Tortas de vainilla con frosting de chocolate",
+        "price": 160,
+        "images": [
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Tortas"
+            },
+            {
+                "url": "/images/alfajores.jpg",
+                "alt": "Tortas"
+            }
+        ]
+    }
+]

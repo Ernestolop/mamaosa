@@ -1,0 +1,17 @@
+.products {
+    background-color: var(--color-secondary);
+    padding-block: 5rem;
+    padding-inline: 1rem;
+}
+
+.products__container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    text-align: center;
+    display: grid;
+    gap: 2rem;
+}
+
+.products__h1 {
+    text-align: left;
+}
