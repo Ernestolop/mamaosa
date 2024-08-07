@@ -1,0 +1,32 @@
+.product {
+    background-color: var(--color-secondary);
+    padding-block: 5rem;
+    padding-inline: 1rem;
+}
+
+.product__container {
+    max-width: 450px;
+    margin-inline: auto;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.product__text {
+    display: grid;
+    gap: 2rem;
+}
+
+.product__price {
+    font-size: var(--text-sm);
+    font-weight: var(--text-black);
+}
+
+.product__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
+}

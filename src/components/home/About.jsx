@@ -12,7 +12,7 @@ export const About = () => {
               <p>Nuestra misión es brindar a nuestros clientes una experiencia única y deliciosa, honrando la tradición de la repostería paraguaya.</p>
             </div>
           </div>
-          <Image className={styles.about__image} src="/images/mama-osa.svg" alt="Mamá Osa - Confitería Artesanal" width={200} height={400} />
+          <Image className={styles.about__image} src="/images/mama-osa.svg" alt="Mamá Osa - Confitería Artesanal" width={200} height={400} priority />
         </div>
       </section>
     )

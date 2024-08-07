@@ -11,6 +11,7 @@
 }
 
 .products__item {
+    max-width: 500px;
     background-color: var(--color-secondary-light);
     padding: 1rem;
     border-radius: 10px;
@@ -44,11 +45,4 @@
     color: #ffffff;
     text-transform: uppercase;
     display: flex;
-}
-
-.product__image {
-    max-width: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-    margin-inline: auto;
 }

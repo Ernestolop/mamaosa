@@ -25,6 +25,13 @@
 
   --hambuger-open-display: block;
   --hambuger-close-display: none;
+
+  --swiper-pagination-color: var(--color-primary);
+  --swiper-pagination-bullet-inactive-color: var(--color-primary);
+  --swiper-pagination-bullet-inactive-opacity: 0.8;
+  --swiper-pagination-bullet-width: 13px;
+  --swiper-pagination-bullet-height: 13px;
+  --swiper-pagination-bullet-border-radius: 50%;
 }
 
 * {
@@ -56,4 +63,8 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.swiper-pagination {
+  padding-block-end: 1rem;
 }
