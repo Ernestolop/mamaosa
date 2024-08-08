@@ -25,6 +25,55 @@
     align-items: center;
 }
 
+.contact {
+    background-color: var(--color-secondary-light);
+    padding-block: 5rem;
+    padding-inline: 1rem;
+}
+
+.contact__container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    text-align: left;
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .contact__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.contact__content {
+    display: grid;
+    gap: 2rem;
+}
+
+.contact__image {
+    margin-inline: auto;
+}
+
+.contact__list {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.contact__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact__link:hover {
+    transform: scale(1.1);
+}
+
+.contact__link:active {
+    transform: scale(0.9);
+}
+
 .footer {
     background-color: var(--color-accent);
     padding-block: 2.5rem;
@@ -41,6 +90,10 @@
     font-weight: var(--text-bold);
 }
 
+.product__images {
+    width: 100%;
+}
+
 .product__image {
     max-width: 100%;
     border-radius: 10px;
@@ -48,6 +101,35 @@
     margin-inline: auto;
 }
 
-.product__images{
+
+.copy__button {
+    height: 35px;
+    width: 35px;
+}
+
+.copy__button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.copy__button:active {
+    transform: scale(0.9);
+}
+
+.copy__svg {
+    stroke: var(--color-primary);
+}
+
+.thumbs {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-inline: auto;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
+.thumbs__carrousel {
     width: 100%;
 }

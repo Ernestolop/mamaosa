@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
-import { Main, About, Contact, Products } from "@/components";
+import { Main, About, Products } from "@/components";
 
 export const metadata = {
   title: "Create Next App",
@@ -19,7 +19,6 @@ export default function Home() {
           <Products />
         </div>
       </section>
-      <Contact />
     </>
   );
 }

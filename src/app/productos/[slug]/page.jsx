@@ -1,11 +1,8 @@
-'use client';
-//export const revalidate = 60 * 60 * 24 * 7; // 1 week
+export const revalidate = 60 * 60 * 24 * 7; // 1 week
 
-import Image from 'next/image';
-import Link from 'next/link';
 import products from "../../../seed/products.json";
 import styles from './page.module.css';
-import { CardCarrouselImages, ProductWhatsappBtn } from "@/components";
+import { ProductWhatsappBtn, CopyPageBtn, ThumbsGallery } from "@/components";
 
 
 export default function Producto({ params }) {
@@ -21,14 +18,19 @@ export default function Producto({ params }) {
             <main className={styles.product}>
                 <div className={styles.product__container}>
                     <div className={styles.product__text}>
-                        <h1>{name}</h1>
-                        <p>{description}</p>
-                        <div className={styles.product__footer}>
-                            <p className={styles.product__price}>{price}Gs</p>
-                            <ProductWhatsappBtn whatsappLink={whatsappLink} />
+                        <div className={styles.product__header}>
+                            <div className={styles.product__main}>
+                                <h1>{name}</h1>
+                                <p className={styles.product__price}>{price}Gs</p>
+                            </div>
+                            <div className={styles.product__actions}>
+                                <CopyPageBtn />
+                                <ProductWhatsappBtn whatsappLink={whatsappLink} />
+                            </div>
                         </div>
+                        <p>{description}</p>
                     </div>
-                    <CardCarrouselImages images={images} />
+                    <ThumbsGallery images={images} />
                 </div>
             </main>
         </>

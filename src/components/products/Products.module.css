@@ -36,6 +36,13 @@
     font-weight: var(--text-black);
 }
 
+.product__actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
 .product__action {
     background-color: var(--color-primary);
     padding: 0.5rem;
@@ -45,4 +52,30 @@
     color: #ffffff;
     text-transform: uppercase;
     display: flex;
+}
+
+.product__action:hover {
+    transform: scale(1.1);
+}
+
+.product__action:active {
+    transform: scale(0.9);
+}
+
+.view__button {
+    height: 35px;
+    width: 35px;
+}
+
+.view__button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.view__button:active {
+    transform: scale(0.9);
+}
+
+.view__svg {
+    stroke: var(--color-primary);
 }

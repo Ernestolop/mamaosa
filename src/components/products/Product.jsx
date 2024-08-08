@@ -1,9 +1,9 @@
 import styles from "./Products.module.css";
-import { CardCarrouselImages, ProductWhatsappBtn } from "@/components";
+import { CardCarrouselImages, ProductWhatsappBtn, ProductViewBtn } from "@/components";
 
 export const Product = ({ product }) => {
 
-    const { name, description, price, images } = product;
+    const { name, description, price, images, slug } = product;
     const whatsappLink = `https://wa.me/+595971580942?text=Hola, quisiera realizar un pedido de ${name}.`;
 
     return (
@@ -14,7 +14,10 @@ export const Product = ({ product }) => {
                 <p className={styles.product__description}>{description}</p>
                 <footer className={styles.product__footer}>
                     <p className={styles.product__price}>{price}Gs</p>
-                    <ProductWhatsappBtn whatsappLink={whatsappLink} />
+                    <div className={styles.product__actions}>
+                        <ProductViewBtn slug={slug} />
+                        <ProductWhatsappBtn whatsappLink={whatsappLink} />
+                    </div>
                 </footer>
             </article>
         </li>

@@ -31,6 +31,14 @@
     margin-inline: auto;
 }
 
+.main__action:hover {
+    transform: scale(1.1);
+}
+
+.main__action:active {
+    transform: scale(0.9);
+}
+
 .about {
     background-color: var(--color-secondary-light);
     padding-block: 5rem;
@@ -59,45 +67,4 @@
 
 .about__image {
     margin-inline: auto;
-}
-
-.contact {
-    background-color: var(--color-secondary-light);
-    padding-block: 5rem;
-    padding-inline: 1rem;
-}
-
-.contact__container {
-    max-width: var(--max-width);
-    margin-inline: auto;
-    text-align: left;
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-}
-
-@media screen and (min-width: 768px) {
-    .contact__container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.contact__content {
-    display: grid;
-    gap: 2rem;
-}
-
-.contact__image {
-    margin-inline: auto;
-}
-
-.contact__list {
-    display: grid;
-    gap: 0.5rem;
-}
-
-.contact__link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Home.module.css";
+import styles from "./Ui.module.css";
 
 export const Contact = () => {
     return (
@@ -16,12 +16,6 @@ export const Contact = () => {
                                 <Link className={styles.contact__link} href="https://wa.me/+595971580942" target="_blank" rel="noreferrer">
                                     <Image className={styles.contact__icon} src="/images/whatsapp.svg" alt="Mamá Osa - Confitería Artesanal" width={30} height={30} />
                                     <span>+595 971 580 942</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className={styles.contact__link} href="mailto:correo@correo.com">
-                                    <Image className={styles.contact__icon} src="/images/email.svg" alt="Mamá Osa - Confitería Artesanal" width={30} height={30} />
-                                    <span>correo@correo.com</span>
                                 </Link>
                             </li>
                             <li>
