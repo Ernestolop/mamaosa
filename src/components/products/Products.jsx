@@ -1,8 +1,8 @@
 import styles from "./Products.module.css";
-import products from "../../seed/products.json";
 import { Product } from "./Product";
 
-export const Products = () => {
+export const Products = ({ products }) => {
+
     return (
         <ul className={styles.products__list}>
             {products.map((product) => (

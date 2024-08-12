@@ -7,7 +7,7 @@
 .product__container {
     max-width: var(--max-width);
     margin-inline: auto;
-    text-align: center;
+    text-align: left;
     display: grid;
     align-items: center;
     gap: 2rem;
