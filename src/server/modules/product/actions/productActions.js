@@ -10,11 +10,25 @@ export const getProductsPage = async pageable => {
   const products = await googleSheetConnector.getSheetValues(range);
 
   if (!products) {
-    return [];
+    return {
+      currentPage: 0,
+      totalPages: 0,
+      products: []
+    }
   }
 
-  return products.map(row => JSON.parse(row[1]));
+  //hacer otro llamado a la api de google para obtener la cantidad de productos
+  const rangeCount = `products!A:A`;
+  const allProducts = await googleSheetConnector.getSheetValues(rangeCount);
+  const totalProducts = allProducts.length;
 
+
+
+  return {
+    currentPage: page,
+    totalPages: Math.ceil(totalProducts / size),
+    products: products.map(row => JSON.parse(row[1]))
+  }
 }
 
 export const getProductByRow = async row => {

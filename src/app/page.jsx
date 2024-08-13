@@ -1,6 +1,5 @@
 export const revalidate = 604800;
 
-
 import styles from "./page.module.css";
 import { getProductsPage } from "@/server/modules/product/actions/productActions";
 import { Main, About, Products } from "@/components";
@@ -12,8 +11,8 @@ export const metadata = {
 
 export default async function Home() {
 
-  const pageable = {size : 3, page : 0};
-  const products = await getProductsPage(pageable);
+  const pageable = { size: 3, page: 0 };
+  const { products } = await getProductsPage(pageable);
 
   return (
     <>
@@ -22,7 +21,7 @@ export default async function Home() {
       <section className={styles.products}>
         <div className={styles.products__container}>
           <h2 className={styles.products__h2}>Nuestros Productos Destacados</h2>
-          <Products products={products}/>
+          <Products products={products} />
         </div>
       </section>
     </>

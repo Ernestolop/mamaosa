@@ -3,6 +3,7 @@ export * from "./ui/Footer";
 export * from "./ui/CardCarrouselImages";
 export * from "./ui/ThumbsGallery";
 export * from "./ui/CopyPageBtn";
+export * from "./ui/PageableControls";
 export * from "./home/Main";
 export * from "./home/About";
 export * from "./ui/Contact";

@@ -1,15 +1,17 @@
-export const dynamic = 'force-static';
-export const revalidate = 300;
 
+import { redirect } from "next/navigation";
 import styles from "./productos.module.css";
 import { getProductsPage } from "@/server/modules/product/actions/productActions";
-import { Products } from "@/components";
+import { Products, PageableControls } from "@/components";
 
 export default async function Productos({ searchParams }) {
 
     const pageable = getPageable(searchParams);
-    console.log(pageable);
-    const products = await getProductsPage(pageable);
+    const { currentPage, totalPages, products } = await getProductsPage(pageable);
+
+    if (products.length === 0 && pageable.page > 0) {
+        redirect("/productos");
+    }
 
     return (
         <>
@@ -17,6 +19,7 @@ export default async function Productos({ searchParams }) {
                 <div className={styles.products__container}>
                     <h1 className={styles.products__h1}>Productos</h1>
                     <Products products={products} />
+                    <PageableControls pageable={{ currentPage, totalPages }} />
                 </div>
             </main>
         </>

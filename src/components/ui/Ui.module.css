@@ -133,3 +133,56 @@
 .thumbs__carrousel {
     width: 100%;
 }
+
+.pagination__container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-block: 1rem;
+}
+
+.pagination__btn {
+    background-color: var(--color-primary);
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+    border-radius: 5px;
+}
+
+.pagination__current {
+    opacity: 0.5;
+}
+
+.pagination__btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.pagination__btn:active {
+    transform: scale(0.9);
+}
+
+.pagination__current:hover {
+    transform: none;
+}
+
+.pagination__current:active {
+    transform: none;
+}
+
+.pagination__svg {
+    width: 20px;
+}
+
+.pagination__pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagination__link {
+    color: #fff;
+    font-weight: var(--text-bold);
+}
