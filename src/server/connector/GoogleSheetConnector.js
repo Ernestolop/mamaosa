@@ -3,12 +3,16 @@ import { google } from 'googleapis';
 class GoogleSheetConnector {
 
   #spreadsheetId = process.env.SPREADSHEET_ID;
-  #keyFile = process.env.GOOGLE_APP_CREDENTIALS;
+  #serviceAccount = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+  #privateKey = process.env.GOOGLE_PRIVATE_KEY;
   #scopes = "https://www.googleapis.com/auth/spreadsheets";
 
   async #getAuthClient() {
     const auth = new google.auth.GoogleAuth({
-      keyFile: this.#keyFile,
+      credentials: {
+        client_email: this.#serviceAccount,
+        private_key: this.#privateKey.replace(/\\n/g, "\n"),
+      },
       scopes: this.#scopes,
     });
     return await auth.getClient();
