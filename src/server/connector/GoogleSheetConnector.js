@@ -4,7 +4,7 @@ class GoogleSheetConnector {
 
   #spreadsheetId = process.env.SPREADSHEET_ID;
   #serviceAccount = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-  #privateKey = process.env.GOOGLE_PRIVATE_KEY;
+  #privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n");
   #scopes = "https://www.googleapis.com/auth/spreadsheets";
 
   async #getAuthClient() {
