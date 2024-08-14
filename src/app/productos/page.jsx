@@ -4,6 +4,12 @@ import styles from "./productos.module.css";
 import { getProductsPage } from "@/server/modules/product/actions/productActions";
 import { Products, PageableControls } from "@/components";
 
+export const metadata = {
+    title: "Productos | Confitería Mamá Osa",
+    description: "Delicias artesanales hechas con amor. Conoce nuestra variedad de productos y haz tu pedido online."
+};
+
+
 export default async function Productos({ searchParams }) {
 
     const pageable = getPageable(searchParams);

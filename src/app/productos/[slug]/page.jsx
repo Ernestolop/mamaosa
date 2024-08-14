@@ -6,10 +6,20 @@ import { ProductWhatsappBtn, CopyPageBtn, ThumbsGallery } from "@/components";
 import ProductNotFound from "@/server/modules/product/errors/ProductNotFound";
 import { getProductBySlug } from "@/server/modules/product/actions/productActions";
 
+export async function generateMetadata({ params }) {
+    const { slug } = params;
+    const product = await getProduct(slug);
+    const { name, price } = product;
+    return {
+        title: `${name}`,
+        description: `${name} de Confitería Mamá Osa en Paraguay. Pide ya tu ${name} por solo ${price}Gs.`
+    };
+}
+
+
 export async function generateStaticParams() {
     return [];
 }
-
 
 export default async function Producto({ params }) {
 
