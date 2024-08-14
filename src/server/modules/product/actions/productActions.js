@@ -63,3 +63,17 @@ export const getProductBySlug = async slug => {
 
   return getProductByRow(row + 1);
 }
+
+export const getAllSlugs = async () => {
+
+  const googleSheetConnector = new GoogleSheetConnector();
+  const range = `products!A:A`;
+  const rows = await googleSheetConnector.getSheetValues(range);
+
+  if (!rows) {
+    return [];
+  }
+
+  return rows.map(row => row[0]);
+
+}

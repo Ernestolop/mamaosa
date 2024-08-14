@@ -6,7 +6,11 @@ import { Products, PageableControls } from "@/components";
 
 export const metadata = {
     title: "Productos | Confitería Mamá Osa",
-    description: "Delicias artesanales hechas con amor. Conoce nuestra variedad de productos y haz tu pedido online."
+    description: "Delicias artesanales hechas con amor. Conoce nuestra variedad de productos y haz tu pedido online.",
+    openGraph: {
+        title: "Productos | Confitería Mamá Osa",
+        description: "Delicias artesanales hechas con amor. Conoce nuestra variedad de productos y haz tu pedido online.",
+    }
 };
 
 

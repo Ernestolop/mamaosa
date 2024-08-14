@@ -4,12 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'i.ytimg.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cocinachilena.cl',
+        hostname: 'drive.google.com',
         pathname: '/**',
       }
     ],

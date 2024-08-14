@@ -9,10 +9,22 @@ import { getProductBySlug } from "@/server/modules/product/actions/productAction
 export async function generateMetadata({ params }) {
     const { slug } = params;
     const product = await getProduct(slug);
-    const { name, price } = product;
+    const { name, price, images } = product;
     return {
         title: `${name}`,
-        description: `${name} de Confitería Mamá Osa en Paraguay. Pide ya tu ${name} por solo ${price}Gs.`
+        description: `${name} de Confitería Mamá Osa en Paraguay. Pide ya tu ${name} por solo ${price}Gs.`,
+        openGraph: {
+            title: `${name}`,
+            description: `${name} de Confitería Mamá Osa en Paraguay. Pide ya tu ${name} por solo ${price}Gs.`,
+            images: [
+                {
+                    url: images[0].url,
+                    alt: images[0].alt,
+                    height: images[0].height,
+                    width: images[0].width
+                }
+            ]
+        }
     };
 }
 
