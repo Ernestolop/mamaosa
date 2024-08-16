@@ -1,79 +1,85 @@
-import GoogleSheetConnector from "@/server/connector/GoogleSheetConnector";
+import PostgresConnector from "@/server/connector/PostgresConnector";
 import ProductNotFound from "@/server/modules/product/errors/ProductNotFound";
 
+const postgresConnector = new PostgresConnector();
+
 export const getProductsPage = async pageable => {
+  try {
+    const products = await postgresConnector.getProducts(pageable);
 
-  const { page, size } = pageable;
-  const range = `products!A${page * size + 1}:B${(page + 1) * size}`;
-
-  const googleSheetConnector = new GoogleSheetConnector();
-  const products = await googleSheetConnector.getSheetValues(range);
-
-  if (!products) {
-    return {
-      currentPage: 0,
-      totalPages: 0,
-      products: []
+    if (!products.length) {
+      return {
+        currentPage: 0,
+        totalPages: 0,
+        products: []
+      };
     }
+
+    const totalProducts = await getTotalProductCount();
+    const totalPages = Math.ceil(totalProducts / pageable.size);
+    return {
+      currentPage: pageable.page,
+      totalPages,
+      products
+    };
+  } catch (error) {
+    console.error('Error getting products page:', error);
+    throw error;
   }
-
-  //hacer otro llamado a la api de google para obtener la cantidad de productos
-  const rangeCount = `products!A:A`;
-  const allProducts = await googleSheetConnector.getSheetValues(rangeCount);
-  const totalProducts = allProducts.length;
-
-
-
-  return {
-    currentPage: page,
-    totalPages: Math.ceil(totalProducts / size),
-    products: products.map(row => JSON.parse(row[1]))
-  }
-}
+};
 
 export const getProductByRow = async row => {
+  try {
+    const product = await postgresConnector.executeQuery(
+      `SELECT * FROM products ORDER BY id LIMIT 1 OFFSET $1`,
+      [row - 1]
+    );
 
-  const googleSheetConnector = new GoogleSheetConnector();
-  const range = `products!A${row}:E${row}`;
-  const rows = await googleSheetConnector.getSheetValues(range);
+    if (!product.length) {
+      throw new ProductNotFound();
+    }
 
-  if (!rows || !rows.length) {
-    throw new ProductNotFound();
+    return product[0];
+  } catch (error) {
+    console.error('Error getting product by row:', error);
+    throw error;
   }
-
-  return JSON.parse(rows[0][1]);
-
-}
+};
 
 export const getProductBySlug = async slug => {
+  try {
+    const product = await postgresConnector.executeQuery(
+      `SELECT * FROM products WHERE slug = $1`,
+      [slug]
+    );
 
-  const googleSheetConnector = new GoogleSheetConnector();
-  const range = `products!A:A`;
-  const rows = await googleSheetConnector.getSheetValues(range);
+    if (!product.length) {
+      throw new ProductNotFound();
+    }
 
-  if (!rows) {
-    throw new ProductNotFound();
+    return product[0];
+  } catch (error) {
+    console.error('Error getting product by slug:', error);
+    throw error;
   }
-
-  const row = rows.findIndex(row => row[0] === slug);
-
-  if (row === -1) {
-    throw new ProductNotFound();
-  }
-
-  return getProductByRow(row + 1);
-}
+};
 
 export const getAllSlugs = async () => {
-
-  const googleSheetConnector = new GoogleSheetConnector();
-  const range = `products!A:A`;
-  const rows = await googleSheetConnector.getSheetValues(range);
-
-  if (!rows) {
-    return [];
+  try {
+    const slugs = await postgresConnector.executeQuery(`SELECT slug FROM products`);
+    return slugs.map(row => row.slug);
+  } catch (error) {
+    console.error('Error getting all slugs:', error);
+    throw error;
   }
+};
 
-  return rows.map(row => row[0]);
-
-}
+const getTotalProductCount = async () => {
+  try {
+    const result = await postgresConnector.executeQuery(`SELECT COUNT(*) FROM products`);
+    return parseInt(result[0].count, 10);
+  } catch (error) {
+    console.error('Error getting total product count:', error);
+    throw error;
+  }
+};

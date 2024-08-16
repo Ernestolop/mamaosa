@@ -39,7 +39,7 @@ export default async function Producto({ params }) {
 
     const product = await getProduct(slug);
 
-    const { price, name, text, images } = product;
+    const { price, name, page_content, images } = product;
     const whatsappLink = `https://wa.me/+595971580942?text=Hola, quisiera realizar un pedido de ${name}.`;
 
     return (
@@ -57,7 +57,7 @@ export default async function Producto({ params }) {
                                 <ProductWhatsappBtn whatsappLink={whatsappLink} />
                             </div>
                         </div>
-                        <p>{text}</p>
+                        <p>{page_content}</p>
                     </div>
                     <ThumbsGallery images={images} />
                 </div>

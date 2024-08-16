@@ -8,24 +8,25 @@ export const PageableControls = ({ pageable }) => {
 
   const generatePageNumbers = () => {
     const pages = [];
+    const pageOffset = 1;
 
     if (totalPages <= 5 + siblingsCount * 2) {
       for (let i = 0; i < totalPages; i++) {
-        pages.push(i);
+        pages.push(i + pageOffset);
       }
     } else {
-      const startPage = Math.max(currentPage - siblingsCount, 0);
-      const endPage = Math.min(currentPage + siblingsCount, totalPages - 1);
+      const startPage = Math.max(currentPage - siblingsCount, 1) - pageOffset;
+      const endPage = Math.min(currentPage + siblingsCount, totalPages - 1) - pageOffset;
 
-      if (startPage > 0) pages.push(0);
-      if (startPage > 1) pages.push('...');
+      if (startPage > 1) pages.push(1);
+      if (startPage > 2) pages.push('...');
 
       for (let i = startPage; i <= endPage; i++) {
-        pages.push(i);
+        pages.push(i + pageOffset);
       }
 
       if (endPage < totalPages - 2) pages.push('...');
-      if (endPage < totalPages - 1) pages.push(totalPages - 1);
+      if (endPage < totalPages - 1) pages.push(totalPages);
     }
 
     return pages;
@@ -35,7 +36,7 @@ export const PageableControls = ({ pageable }) => {
 
   return (
     <div className={styles.pagination__container}>
-      {currentPage > 0 &&
+      {currentPage > 1 &&
         <button className={styles.pagination__btn}>
           <Link className={styles.pagination__link} href={`${baseUrl}/productos?page=${currentPage - 1}`}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={styles.pagination__svg}>
@@ -53,18 +54,17 @@ export const PageableControls = ({ pageable }) => {
               <button className={styles.pagination__btn + (currentPage === page ? ` ${styles.pagination__current}` : '')} disabled={currentPage === page}>
                 {
                   currentPage === page ? (
-                    <span className={styles.pagination__link}>{page + 1}</span>
+                    <span className={styles.pagination__link}>{page}</span>
                   ) : (
-                    <Link className={styles.pagination__link} href={`${baseUrl}/productos?page=${page}`}><span>{page + 1}</span></Link>
+                    <Link className={styles.pagination__link} href={`${baseUrl}/productos?page=${page}`}><span>{page}</span></Link>
                   )
                 }
               </button>
-
             )}
           </div>
         ))}
       </div>
-      {currentPage < totalPages - 1 &&
+      {currentPage < totalPages &&
         <button className={styles.pagination__btn}>
           <Link className={styles.pagination__link} href={`${baseUrl}/productos?page=${currentPage + 1}`}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={styles.pagination__svg}>

@@ -38,14 +38,14 @@ export default async function Productos({ searchParams }) {
 
 const getPageable = (searchParams) => {
     if (!searchParams) {
-        return { page: 0, size: 10 };
+        return { page: 1, size: 10 };
     }
 
     let { page } = searchParams;
     const size = 10;
 
     if (isNaN(Number(page)) || page < 0) {
-        page = 0;
+        page = 1;
     }
 
     page = Number(page);

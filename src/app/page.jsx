@@ -15,7 +15,7 @@ export const metadata = {
 
 export default async function Home() {
 
-  const pageable = { size: 3, page: 0 };
+  const pageable = { size: 3, page: 1 };
   const { products } = await getProductsPage(pageable);
 
   return (
